@@ -32,7 +32,9 @@ class AddBookController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        addBook?(book)
-        print("Book Added!")
+        if(segue.identifier == "Done"){
+            addBook?(book)
+            print("Book Added!")
+        }
     }
 }
