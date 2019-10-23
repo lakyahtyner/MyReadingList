@@ -20,6 +20,7 @@
 		EC379283235E53CA00978FA6 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC379282235E53CA00978FA6 /* Book.swift */; };
 		EC379285235E54C300978FA6 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC379284235E54C300978FA6 /* Author.swift */; };
 		EC379287235E55F500978FA6 /* ReadingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC379286235E55F500978FA6 /* ReadingList.swift */; };
+		ECCD17CB2360E46A00C00D48 /* ViewBookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCD17CA2360E46A00C00D48 /* ViewBookController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		EC379282235E53CA00978FA6 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		EC379284235E54C300978FA6 /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
 		EC379286235E55F500978FA6 /* ReadingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingList.swift; sourceTree = "<group>"; };
+		ECCD17CA2360E46A00C00D48 /* ViewBookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBookController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				EC35F0DF2359287100487D0A /* ReadingListController.swift */,
 				EC379280235E2F1500978FA6 /* FirebaseDelagate.swift */,
 				EC35F0E12359287100487D0A /* Main.storyboard */,
+				ECCD17CA2360E46A00C00D48 /* ViewBookController.swift */,
 				EC35F0F42359444700487D0A /* AddBookController.swift */,
 				EC35F0F223593CE400487D0A /* AddBook.storyboard */,
 				EC35F0E42359287300487D0A /* Assets.xcassets */,
@@ -239,6 +242,7 @@
 				EC35F0F52359444700487D0A /* AddBookController.swift in Sources */,
 				EC35F0E02359287100487D0A /* ReadingListController.swift in Sources */,
 				EC379283235E53CA00978FA6 /* Book.swift in Sources */,
+				ECCD17CB2360E46A00C00D48 /* ViewBookController.swift in Sources */,
 				EC379287235E55F500978FA6 /* ReadingList.swift in Sources */,
 				EC35F0DE2359287100487D0A /* AppDelegate.swift in Sources */,
 			);

@@ -42,7 +42,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="gHM-Bn-NtF" kind="show" id="p0Y-1O-JQ2"/>
+                                    <segue destination="gHM-Bn-NtF" kind="show" identifier="View" id="2gt-8F-Y6s"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -86,7 +86,7 @@
         <!--View Book-->
         <scene sceneID="zmP-CY-ZA2">
             <objects>
-                <tableViewController id="gHM-Bn-NtF" sceneMemberID="viewController">
+                <tableViewController id="gHM-Bn-NtF" customClass="ViewBookController" customModule="MyReadingList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Il1-hs-01b">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -203,6 +203,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="View Book" id="zk1-jg-LJb"/>
+                    <connections>
+                        <outlet property="firstNameLabel" destination="D7g-0K-gkr" id="KbD-en-8fF"/>
+                        <outlet property="lastNameLabel" destination="fEJ-6E-osJ" id="ikP-my-ZsF"/>
+                        <outlet property="titleLabel" destination="Um3-4J-706" id="sMa-7b-Kp5"/>
+                        <outlet property="yearLabel" destination="XYm-fH-O14" id="a1b-9h-3xM"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QP2-v3-ByX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
