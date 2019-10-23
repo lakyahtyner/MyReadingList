@@ -10,11 +10,16 @@ import Foundation
 
 class Author {
     
-    var firstName: String?
-    var lastName: String?
+    var firstName: String
+    var lastName: String
     
-    init(_ firstName: String?, _ lastName: String?){
+    init(firstName: String?, lastName: String?){
         self.firstName = firstName ?? ""
         self.lastName = lastName ?? ""
+    }
+    
+    init(author: Author) {
+        self.firstName = author.firstName
+        self.lastName = author.lastName
     }
 }

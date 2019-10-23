@@ -11,9 +11,9 @@ import Firebase
 
 class ReadingList {
     
-    var books: [DocumentSnapshot]?
+    var books: [Book]?
     
-    init(_ books: [DocumentSnapshot]?) {
+    init(_ books: [Book]?) {
         self.books = books
     }
 }

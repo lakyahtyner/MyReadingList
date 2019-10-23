@@ -11,14 +11,16 @@ import Firebase
 
 class ReadingListController: UITableViewController {
 
-    //var db: Firestore!
     var dbDelagate: FirebaseDelagate!
+    
+    var books = [Book]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.dataSource = self
+        tableView.delegate = self
         dbDelagate = FirebaseDelagate()
-        //db = Firestore.firestore()
-        // Do any additional setup after loading the view.
+        loadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -40,6 +42,10 @@ class ReadingListController: UITableViewController {
             print("Cancel")
         }
     }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
     /*
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         db.delete(indexPath)
@@ -49,25 +55,39 @@ class ReadingListController: UITableViewController {
      */
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let num = dbDelagate.readingList.books?.count else {return 0}
-        return num
+        print(books.count)
+        return books.count
     }
  
     // TODO: Required Fields
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "book") else {
-            fatalError("Unable to dequeue a cell with identifier 'Book Summary'. Check identifier in storyboard.")
+            fatalError("Unable to dequeue a cell with identifier 'book'. Check identifier in storyboard.")
         }
         
-        guard let book = dbDelagate.readingList.books?[indexPath.row] else {
-            cell.textLabel?.text = ""
-            cell.detailTextLabel?.text = ""
-            return cell
-        }
-        cell.textLabel?.text = book.get("title") as! String
-        cell.detailTextLabel?.text = "\(book.get("year") ?? "----") \((book.get("author") as? Author)?.firstName ?? "Unknown") \((book.get("author") as? Author)?.lastName ?? "Unknown")"
-        
+        let book = books[indexPath.row]
+        cell.textLabel?.text = "\(book.title)"
+        cell.detailTextLabel?.text = "No Year or Author"
         return cell
+    }
+    
+    func loadData() {
+        dbDelagate.db.collection("readinglist").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    let title =  document.data()["title"] as! String
+                    let year = document.data()["year"] as! String
+                    let author = document.data()["author"] as! [String: String]
+                    let firstName = author["firstName"] as! String
+                    let lastName = author["lastName"] as! String
+                    
+                    self.books.append(Book(title: title, year: year, author: Author(firstName: firstName, lastName: lastName)))
+                }
+                self.tableView.reloadData()
+            }
+        }
     }
     
 }
