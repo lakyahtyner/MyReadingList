@@ -6,15 +6,14 @@
 //  Copyright © 2019 LaKyah Tyner. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import Firebase
 
 class FirebaseDelagate {
     
     var db: Firestore!
-    var readingList: ReadingList {
-        return ReadingList(selectAll())
-    }
+    var books = [Book]()
     
     init() {
         db = Firestore.firestore()
@@ -44,19 +43,5 @@ class FirebaseDelagate {
     
     func delete(_ atIndex: IndexPath){
         
-    }
-    
-    func selectAll() -> [DocumentSnapshot]?{
-        var querySnap: QuerySnapshot! = nil
-        db.collection("readinglist").getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            }
-            else{
-                querySnap = querySnapshot
-            }
-        }
-        guard querySnap != nil else{return nil}
-            return querySnap.documents
     }
 }

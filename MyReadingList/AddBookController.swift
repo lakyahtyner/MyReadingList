@@ -22,7 +22,7 @@ class AddBookController: UITableViewController {
         ]
     }
     var book: Book{
-        return Book(titleTextField.text!, yearTextField.text ?? "", author)
+        return Book(title: titleTextField.text!, year: yearTextField.text!, author: Author(firstName: firstNameTextField.text, lastName: lastNameTextField.text))
     }
     
     var addBook: ((Book) -> Void)?

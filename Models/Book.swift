@@ -8,23 +8,28 @@
 
 import Foundation
 
-class Book {
+class  Book {
     var title: String
     var year: String
-    var author: [String: String]?
+    var author: Author
     
-    init(_ title: String, _ year: String, _ author: [String: String]?){
+    init(title: String, year: String, author: Author){
         self.title = title
         self.year = year
-        self.author = author ?? nil
+        self.author = author
     }
     
-    func getAuthor() -> [String: String]? {
+    init(book: Book){
+        self.title = book.title
+        self.year = book.year
+        self.author = Author(author: book.author)
+    }
+    
+    func getAuthor() -> Author {
         return author
     }
     
-    func getDictionary() -> [String: Any?]{
-        return ["title": title,
-                "author": author]
+    func getDictionary() -> [String: Any]{
+        return ["title": title, "year": year,"author": author]
     }
 }
