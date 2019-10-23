@@ -30,6 +30,14 @@ class ReadingListController: UITableViewController {
                 fatalError("Unable to downcast the destination as an instance of \(AddBookController.self)")
             }
             controller.addBook = {[weak self] book in self!.dbDelagate.insert(book)}
+        case "View":
+            guard
+                let controller = segue.destination as? ViewBookController,
+                let indexPath = tableView.indexPathForSelectedRow
+                else {
+                    fatalError("Unable to downcast the destination as an instance of \(ViewBookController.self)")
+                }
+                controller.book = books[indexPath.row]
         default: break
         }
     }
@@ -55,7 +63,6 @@ class ReadingListController: UITableViewController {
      */
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(books.count)
         return books.count
     }
  
@@ -89,6 +96,5 @@ class ReadingListController: UITableViewController {
             }
         }
     }
-    
 }
 
