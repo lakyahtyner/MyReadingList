@@ -67,7 +67,7 @@ class ReadingListController: UITableViewController {
         
         let book = books[indexPath.row]
         cell.textLabel?.text = "\(book.title)"
-        cell.detailTextLabel?.text = "No Year or Author"
+        cell.detailTextLabel?.text = "\(book.year) \(book.author.firstName) \(book.author.lastName)"
         return cell
     }
     
