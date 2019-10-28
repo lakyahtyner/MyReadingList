@@ -202,7 +202,13 @@
                             <outlet property="delegate" destination="gHM-Bn-NtF" id="CZf-UX-Eqe"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="View Book" id="zk1-jg-LJb"/>
+                    <navigationItem key="navigationItem" title="View Book" id="zk1-jg-LJb">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="HfO-j8-g79">
+                            <connections>
+                                <segue destination="XHW-x2-CDX" kind="presentation" identifier="Edit" id="OSf-LY-VkY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="firstNameLabel" destination="D7g-0K-gkr" id="KbD-en-8fF"/>
                         <outlet property="lastNameLabel" destination="fEJ-6E-osJ" id="ikP-my-ZsF"/>
@@ -221,6 +227,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u1i-Kp-NBt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="593" y="-404"/>
+        </scene>
+        <!--EditBook-->
+        <scene sceneID="kOq-m4-Iua">
+            <objects>
+                <viewControllerPlaceholder storyboardName="EditBook" id="XHW-x2-CDX" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V3E-0q-9Z2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1672" y="153"/>
         </scene>
     </scenes>
 </document>

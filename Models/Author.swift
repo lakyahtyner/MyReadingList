@@ -22,4 +22,8 @@ class Author {
         self.firstName = author.firstName
         self.lastName = author.lastName
     }
+    
+    func getDictionary() -> [String: Any]{
+        return ["firstName": firstName, "lastName": lastName]
+    }
 }

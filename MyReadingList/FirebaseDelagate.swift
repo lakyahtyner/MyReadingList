@@ -20,18 +20,17 @@ class FirebaseDelagate {
     }
     
     func insert(_ book:Book) {
-        var ref: DocumentReference? = nil
-        ref = db.collection("authors").addDocument(data: book.getAuthor() as! [String : Any]
-        ){ err in
-            if let err = err {
-                print("Error writing document: \(err)")
-            } else {
-                print("Document successfully written!")
-            }
-        }
+//        var ref: DocumentReference? = nil
+//        ref = db.collection("authors").addDocument(data: book.getAuthor().getDictionary() as! [String : Any]
+//        ){ err in
+//            if let err = err {
+//                print("Error writing document: \(err)")
+//            } else {
+//                print("Document successfully written!")
+//            }
+//        }
         
-        ref = db.collection("readinglist").addDocument(data:
-            book.getDictionary()
+        db.collection("readinglist").document(book.title).setData(book.getDictionary()
         ){ err in
             if let err = err {
                 print("Error writing document: \(err)")
@@ -41,7 +40,13 @@ class FirebaseDelagate {
         }
     }
     
-    func delete(_ atIndex: IndexPath){
-        
+    func delete(_ title: String){
+        db.collection("readinglist").document("\(title)").delete() { err in
+            if let err = err {
+                print("Error removing document: \(err)")
+            } else {
+                print("Document successfully removed!")
+            }
+        }
     }
 }
