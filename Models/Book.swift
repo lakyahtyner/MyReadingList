@@ -30,6 +30,6 @@ class  Book {
     }
     
     func getDictionary() -> [String: Any]{
-        return ["title": title, "year": year,"author": author]
+        return ["title": title, "year": year,"author": ["firstName": author.firstName, "lastName": author.lastName]]
     }
 }

@@ -21,6 +21,8 @@
 		EC379285235E54C300978FA6 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC379284235E54C300978FA6 /* Author.swift */; };
 		EC379287235E55F500978FA6 /* ReadingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC379286235E55F500978FA6 /* ReadingList.swift */; };
 		ECCD17CB2360E46A00C00D48 /* ViewBookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCD17CA2360E46A00C00D48 /* ViewBookController.swift */; };
+		ECCD17CD236217C100C00D48 /* EditBookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCD17CC236217C100C00D48 /* EditBookController.swift */; };
+		ECCD17D12363630C00C00D48 /* EditBook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECCD17D02363630C00C00D48 /* EditBook.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		EC379284235E54C300978FA6 /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
 		EC379286235E55F500978FA6 /* ReadingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingList.swift; sourceTree = "<group>"; };
 		ECCD17CA2360E46A00C00D48 /* ViewBookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBookController.swift; sourceTree = "<group>"; };
+		ECCD17CC236217C100C00D48 /* EditBookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBookController.swift; sourceTree = "<group>"; };
+		ECCD17D02363630C00C00D48 /* EditBook.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditBook.storyboard; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,11 +91,13 @@
 			isa = PBXGroup;
 			children = (
 				EC35F0DD2359287100487D0A /* AppDelegate.swift */,
-				EC35F0DF2359287100487D0A /* ReadingListController.swift */,
 				EC379280235E2F1500978FA6 /* FirebaseDelagate.swift */,
-				EC35F0E12359287100487D0A /* Main.storyboard */,
+				EC35F0DF2359287100487D0A /* ReadingListController.swift */,
 				ECCD17CA2360E46A00C00D48 /* ViewBookController.swift */,
 				EC35F0F42359444700487D0A /* AddBookController.swift */,
+				ECCD17CC236217C100C00D48 /* EditBookController.swift */,
+				EC35F0E12359287100487D0A /* Main.storyboard */,
+				ECCD17D02363630C00C00D48 /* EditBook.storyboard */,
 				EC35F0F223593CE400487D0A /* AddBook.storyboard */,
 				EC35F0E42359287300487D0A /* Assets.xcassets */,
 				EC35F0E62359287300487D0A /* LaunchScreen.storyboard */,
@@ -185,6 +191,7 @@
 				EC37927F235DEA5100978FA6 /* GoogleService-Info.plist in Resources */,
 				EC35F0E52359287300487D0A /* Assets.xcassets in Resources */,
 				EC35F0E32359287100487D0A /* Main.storyboard in Resources */,
+				ECCD17D12363630C00C00D48 /* EditBook.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +251,7 @@
 				EC379283235E53CA00978FA6 /* Book.swift in Sources */,
 				ECCD17CB2360E46A00C00D48 /* ViewBookController.swift in Sources */,
 				EC379287235E55F500978FA6 /* ReadingList.swift in Sources */,
+				ECCD17CD236217C100C00D48 /* EditBookController.swift in Sources */,
 				EC35F0DE2359287100487D0A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

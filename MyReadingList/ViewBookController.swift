@@ -20,12 +20,24 @@ class ViewBookController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print(book?.title)
+        
         titleLabel.text = book?.title
         yearLabel.text = book?.year
         firstNameLabel.text = book?.author.firstName
         lastNameLabel.text = book?.author.lastName
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "Edit":
+            guard let controller = segue.destination.children.first as? EditBookController else { return }
+            controller.book = self.book
+        default: break
+        }
+    }
+    
+    @IBAction func cancel(for unwindSegue: UIStoryboardSegue) {
+       
+    }
     
 }
