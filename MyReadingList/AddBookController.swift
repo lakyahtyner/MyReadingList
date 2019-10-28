@@ -21,6 +21,7 @@ class AddBookController: UITableViewController {
             "lastName" : "\(lastNameTextField.text ?? "")"
         ]
     }
+    
     var book: Book{
         return Book(title: titleTextField.text!, year: yearTextField.text!, author: Author(firstName: firstNameTextField.text, lastName: lastNameTextField.text))
     }
@@ -34,7 +35,6 @@ class AddBookController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "Done"){
             addBook?(book)
-            print("Book Added!")
         }
     }
 }

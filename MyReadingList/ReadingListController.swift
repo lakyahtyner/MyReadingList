@@ -29,7 +29,10 @@ class ReadingListController: UITableViewController {
             guard let controller = segue.destination.children.first as? AddBookController else {
                 fatalError("Unable to downcast the destination as an instance of \(AddBookController.self)")
             }
-            controller.addBook = {[weak self] book in self!.dbDelagate.insert(book)}
+            controller.addBook = {[weak self] book in
+                self!.dbDelagate.insert(book)
+                self!.books.append(book)
+            }
         case "View":
             guard
                 let controller = segue.destination as? ViewBookController,
@@ -43,14 +46,10 @@ class ReadingListController: UITableViewController {
     }
     
     @IBAction func unwind(for unwindSegue: UIStoryboardSegue) {
-        if(unwindSegue.identifier == "Back"){
-            print("Back")
-        }
-        else if (unwindSegue.identifier == "Cancel"){
-            print("Cancel")
+        if (unwindSegue.identifier == "Cancel"){
         }
         else if (unwindSegue.identifier == "Done"){
-            self.tableView.reloadData()
+            tableView.reloadData()
         }
     }
     
