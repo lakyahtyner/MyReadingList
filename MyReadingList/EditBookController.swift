@@ -28,11 +28,18 @@ class EditBookController: UITableViewController {
         lastNameTextField.text = book?.author.lastName
     }
     
+    func updateBook(){
+        book?.title = titleTextField.text!
+        book?.year = yearTextField.text!
+        book?.author = Author(firstName: firstNameTextField.text!, lastName: lastNameTextField.text!)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "Done":
             dbDelagate.delete(book!.title)
-            dbDelagate.insert(Book(title: titleTextField.text!, year: yearTextField.text!, author: Author(firstName: firstNameTextField.text!, lastName: lastNameTextField.text!)))
+            updateBook()
+            dbDelagate.insert(book!)
         default:
             return
         }

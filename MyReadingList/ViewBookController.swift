@@ -39,5 +39,4 @@ class ViewBookController: UITableViewController {
     @IBAction func cancel(for unwindSegue: UIStoryboardSegue) {
        
     }
-    
 }

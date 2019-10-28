@@ -49,6 +49,9 @@ class ReadingListController: UITableViewController {
         else if (unwindSegue.identifier == "Cancel"){
             print("Cancel")
         }
+        else if (unwindSegue.identifier == "Done"){
+            self.tableView.reloadData()
+        }
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

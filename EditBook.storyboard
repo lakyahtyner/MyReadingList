@@ -139,7 +139,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="KJN-P6-AZ1">
                             <connections>
-                                <segue destination="wgu-Q1-A72" kind="unwind" identifier="Done" unwindAction="unwindFor:" id="hzC-Nt-UPw"/>
+                                <segue destination="wgu-Q1-A72" kind="unwind" identifier="Done" unwindAction="unwindFor:" id="Gbs-FC-bEZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
