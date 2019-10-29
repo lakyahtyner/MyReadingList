@@ -12,6 +12,7 @@ import UIKit
 class EditBookController: UITableViewController {
     
     var book: Book?
+    var index: Int?
     var dbDelagate = FirebaseDelagate()
     
     @IBOutlet weak var titleTextField: UITextField!
@@ -37,9 +38,9 @@ class EditBookController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "Done":
-            dbDelagate.delete(book!.title)
+            dbDelagate.delete("\(index!)")
             updateBook()
-            dbDelagate.insert(book!)
+            dbDelagate.insert(book!, "\(index!)")
         default:
             return
         }

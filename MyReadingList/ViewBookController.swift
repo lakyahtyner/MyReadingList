@@ -12,6 +12,7 @@ import UIKit
 class ViewBookController: UITableViewController {
     
     var book: Book?
+    var index: Int?
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var yearLabel: UILabel!
@@ -32,6 +33,7 @@ class ViewBookController: UITableViewController {
         case "Edit":
             guard let controller = segue.destination.children.first as? EditBookController else { return }
             controller.book = self.book
+            controller.index = index!
         default: break
         }
     }

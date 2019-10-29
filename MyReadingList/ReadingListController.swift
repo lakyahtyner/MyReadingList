@@ -17,6 +17,7 @@ class ReadingListController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.leftBarButtonItem = editButtonItem
         tableView.dataSource = self
         tableView.delegate = self
         dbDelagate = FirebaseDelagate()
@@ -30,7 +31,7 @@ class ReadingListController: UITableViewController {
                 fatalError("Unable to downcast the destination as an instance of \(AddBookController.self)")
             }
             controller.addBook = {[weak self] book in
-                self!.dbDelagate.insert(book)
+                self!.dbDelagate.insert(book, "\(self!.books.count)")
                 self!.books.append(book)
             }
         case "View":
@@ -41,6 +42,7 @@ class ReadingListController: UITableViewController {
                     fatalError("Unable to downcast the destination as an instance of \(ViewBookController.self)")
                 }
                 controller.book = books[indexPath.row]
+                controller.index = indexPath.row
         default: break
         }
     }
@@ -57,8 +59,31 @@ class ReadingListController: UITableViewController {
         return 1
     }
     
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        var temp: Book
+    
+        if(sourceIndexPath.row < destinationIndexPath.row){
+            temp = books[sourceIndexPath.row]
+            for index in sourceIndexPath.row...(destinationIndexPath.row-1) {
+                dbDelagate.insert(books[index+1], "\(index)")
+            }
+            dbDelagate.insert(temp, "\(destinationIndexPath.row)")
+            books.remove(at: sourceIndexPath.row)
+            books.insert(temp, at: destinationIndexPath.row)
+        }
+        else {
+            temp = books[sourceIndexPath.row]
+            for index in stride(from: sourceIndexPath.row - 1, through: destinationIndexPath.row, by: -1) {
+                dbDelagate.insert(books[index], "\(index+1)")
+            }
+            dbDelagate.insert(temp, "\(destinationIndexPath.row)")
+            books.remove(at: sourceIndexPath.row)
+            books.insert(temp, at: destinationIndexPath.row)
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        dbDelagate.delete(books[indexPath.row].title)
+        dbDelagate.delete("\(indexPath.row)")
         books.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .automatic)
     }

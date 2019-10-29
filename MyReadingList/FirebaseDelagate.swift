@@ -19,7 +19,7 @@ class FirebaseDelagate {
         db = Firestore.firestore()
     }
     
-    func insert(_ book:Book) {
+    func insert(_ book:Book, _ index: String) {
 //        var ref: DocumentReference? = nil
 //        ref = db.collection("authors").addDocument(data: book.getAuthor().getDictionary() as! [String : Any]
 //        ){ err in
@@ -30,7 +30,7 @@ class FirebaseDelagate {
 //            }
 //        }
         
-        db.collection("readinglist").document(book.title).setData(book.getDictionary()
+        db.collection("readinglist").document(index).setData(book.getDictionary()
         ){ err in
             if let err = err {
                 print("Error writing document: \(err)")
@@ -40,8 +40,8 @@ class FirebaseDelagate {
         }
     }
     
-    func delete(_ title: String){
-        db.collection("readinglist").document("\(title)").delete() { err in
+    func delete(_ bookNumber: String){
+        db.collection("readinglist").document(bookNumber).delete() { err in
             if let err = err {
                 print("Error removing document: \(err)")
             } else {
